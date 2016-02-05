@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <CL/cl.h>
 #include <time.h>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 
+#include <stdlib.h>
 
 size_t p_amount = 5;
-
-
-
-
+int p_spacement;
 
 struct P_info {
 
@@ -22,43 +24,45 @@ struct P_info {
 };
 struct P_info *particle;
 
-//void particle_instantiate(int p_amount, struct P_info p[]);
+void particle_instantiate(int p_amount);
 
-//float pitTeorem3D (float *x, float *y, float *z);
+float pit_teorem3d (float *x, float *y, float *z);
 
-//struct P_info* particle = malloc(p_amount * sizeof(P_info));
+void gravity_dyanamic ();
 
 int main(){
 
+//////////////////////////////////////////
+    puts("particle amount : ");         //
+    scanf("%d", &p_amount);             //
+    if(p_amount <= 0)                   //
+        return 2;                       //
+    printf("particle spacement : ");    //
+    scanf("%d", &p_spacement);          //
+//////////////////////////////////////////
 
-    p_amount = 5;
 
     particle = malloc(p_amount * sizeof(struct P_info));
 
     particle_instantiate(p_amount);
 
-    int i;
-    for(i = 0; i < p_amount; i++){
+    printf("memory usage %d bytes", sizeof(particle) * p_amount);
 
-    printf("p %i\nx = %d\ny = %d\nz = %d\n\n", i, particle[i].pos_x
-                                                , particle[i].pos_y
-                                                , particle[i].pos_z);
-    }
 
     return 0;
 
 }
 
 void particle_instantiate(int p_amount){
-   // srand(time(NULL));
-   // struct P_info par_struct[p_amount];
+    srand(time(NULL));
+
     int i;
     for(i = 0; i < p_amount; i++){
 
 
-    particle[i].pos_x = 45;
-    particle[i].pos_y = 16;
-    particle[i].pos_z = 5;
+    particle[i].pos_x = rand() % p_spacement;
+    particle[i].pos_y = rand() % p_spacement;
+    particle[i].pos_z = rand() % p_spacement;
 
 
     }
@@ -66,14 +70,22 @@ void particle_instantiate(int p_amount){
 
 }
 
-/*float pitTeorem3D (float *x, float *y, float *z) {
+float pit_teorem3d (float *x, float *y, float *z) {
 
-    float *xup2 = *toPythagoream.x * *toPythagoream.x;
-    float *yup2 = *toPythagoream.y * *toPythagoream.y;
-    float *zup2 = *toPythagoream.z * *toPythagoream.z;
+    float xup2 = *x * *x;
+    float yup2 = *y * *y;
+    float zup2 = *z * *z;
 
     return sqrtf (xup2 + zup2 + yup2);
 
 
- }*/
+ }
+
+void gravity_dyanamic (){
+
+//fg = g.m1.m2/d.d
+
+
+
+}
 

@@ -10,3 +10,9 @@
 	<math.h>
 	<CL/cl.h>
 
+1454709331 source:c:\users\zigoo_000\desktop\nbodysvn\trunk\n-body_simulation_c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<GL/glut.h>
+
