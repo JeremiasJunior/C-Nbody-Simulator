@@ -4,13 +4,13 @@
 	<Project>
 		<Option title="N-Body_Simulation_C" />
 		<Option pch_mode="2" />
-		<Option compiler="opencl" />
+		<Option compiler="GNU GCC Compiler" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/N-Body_Simulation_C" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
-				<Option compiler="opencl" />
+				<Option compiler="GNU GCC Compiler" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -19,7 +19,7 @@
 				<Option output="bin/Release/N-Body_Simulation_C" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
-				<Option compiler="opencl" />
+				<Option compiler="GNU GCC Compiler" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>

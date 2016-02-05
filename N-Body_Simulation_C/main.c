@@ -12,7 +12,7 @@ int p_amount = 5;
 
 struct P_info {
 
-
+    float x;
     float *pos_x;
     float *pos_y;
     float *pos_z;
