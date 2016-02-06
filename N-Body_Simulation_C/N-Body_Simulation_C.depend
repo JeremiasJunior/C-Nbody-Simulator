@@ -10,10 +10,11 @@
 	<math.h>
 	<CL/cl.h>
 
-1454715326 source:c:\users\zigoo_000\desktop\nbodysvn\trunk\n-body_simulation_c\main.c
+1454781320 source:c:\users\zigoo_000\desktop\nbodysvn\trunk\n-body_simulation_c\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<GL/gl.h>
-	<stdlib.h>
+
+1454716557 source:c:\users\zigoo_000\desktop\nbodysvn\trunk\n-body_simulation_c\opengl_render.c
 

@@ -37,9 +37,6 @@
 		<Unit filename="math_physics_lib.h">
 			<Option target="Debug" />
 		</Unit>
-		<Unit filename="opengl_render.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

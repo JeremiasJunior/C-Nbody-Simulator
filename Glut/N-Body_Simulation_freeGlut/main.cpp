@@ -1,9 +1,11 @@
+#include <GL/glut.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <GL/gl.h>
+#include <math.h>
 
-size_t p_amount = 5;
+
+int p_amount = 5;
 int p_spacement;
 
 struct P_info {
@@ -22,11 +24,18 @@ void particle_instantiate(int p_amount);
 
 float pit_teorem3d (float *x, float *y, float *z);
 
+void p_render();
+
 void gravity_dyanamic ();
 
-int main(){
+void window_start();
 
-  //  glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
+int main(int argc, char **argv){
+
+
+
+
+
 //////////////////////////////////////////
     puts("particle amount : ");         //
     scanf("%d", &p_amount);             //
@@ -37,12 +46,13 @@ int main(){
 //////////////////////////////////////////
 
 
-    particle = malloc(p_amount * sizeof(struct P_info));
+   // particle = malloc(p_amount * sizeof(struct P_info));
 
     particle_instantiate(p_amount);
 
     printf("memory usage %d bytes", sizeof(particle) * p_amount);
 
+    window_start();
 
     return 0;
 
@@ -55,9 +65,9 @@ void particle_instantiate(int p_amount){
     for(i = 0; i < p_amount; i++){
 
 
-    particle[i].pos_x = rand() % p_spacement;
-    particle[i].pos_y = rand() % p_spacement;
-    particle[i].pos_z = rand() % p_spacement;
+//    particle[i].pos_x = rand() % p_spacement;
+  //  particle[i].pos_y = rand() % p_spacement;
+    //particle[i].pos_z = rand() % p_spacement;
 
 
     }
@@ -84,3 +94,17 @@ void gravity_dyanamic (){
 
 }
 
+void window_start(){
+
+    //glutInit(&argc, argv);
+    glutInit(1,NULL);
+    glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
+    glutInitWindowPosition(100,100);
+    glutInitWindowSize(640,480);
+    glutCreateWindow("OpenGL");
+
+}
+void p_render(){
+
+
+}
