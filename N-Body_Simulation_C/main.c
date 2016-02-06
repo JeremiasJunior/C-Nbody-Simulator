@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
+#include <GL/gl.h>
+
 
 #include <stdlib.h>
 
@@ -32,6 +29,7 @@ void gravity_dyanamic ();
 
 int main(){
 
+  //  glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
 //////////////////////////////////////////
     puts("particle amount : ");         //
     scanf("%d", &p_amount);             //
