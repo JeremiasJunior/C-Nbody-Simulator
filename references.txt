@@ -1,0 +1,3 @@
+http://www.inf.ufsc.br/~grafica/apostilas/openGL/lesson01/#Inicializa%C3%A7%C3%A3o%20de%20OpenGL
+
+http://www.inf.pucrs.br/~manssour/OpenGL/PrimeiroPrograma.html
