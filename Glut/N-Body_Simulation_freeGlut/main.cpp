@@ -7,6 +7,8 @@
 
 int p_amount = 5;
 int p_spacement;
+int count_this = 0;
+int count_those = 0;
 
 struct P_info {
 
@@ -28,34 +30,49 @@ void p_render();
 
 void gravity_dyanamic ();
 
+float g_module(float p_distance, float p1_mass, float p2_mass, float g_const);
+
 void window_start();
+
+int p_input(){
+
+    puts("particle amount : \n");
+    scanf("%d", &p_amount);
+
+    if(p_amount <= 0)
+        return 2;
+
+    printf("particle spacement : \n");
+    scanf("%d", &p_spacement);
+
+}
 
 int main(int argc, char **argv){
 
+    p_input();
+
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
+    glutInitWindowPosition(100,100);
+    glutInitWindowSize(640,480);
+    glutCreateWindow("OpenGL");
 
 
 
 
-//////////////////////////////////////////
-    puts("particle amount : ");         //
-    scanf("%d", &p_amount);             //
-    if(p_amount <= 0)                   //
-        return 2;                       //
-    printf("particle spacement : ");    //
-    scanf("%d", &p_spacement);          //
-//////////////////////////////////////////
-
-
-   // particle = malloc(p_amount * sizeof(struct P_info));
-
+    particle = (struct P_info*)malloc(p_amount * sizeof (struct P_info));
+    if (!particle){
+        printf ("** Erro: Memoria Insuficiente **");
+          exit;
+    }else{
+          printf ("** Memoria Alocada com Sucesso **\n\n");
+          printf("memory usage %d bytes", sizeof(particle) * p_amount);
+      }
     particle_instantiate(p_amount);
 
-    printf("memory usage %d bytes", sizeof(particle) * p_amount);
-
-    window_start();
 
     return 0;
-
+    free(particle);
 }
 
 void particle_instantiate(int p_amount){
@@ -86,24 +103,39 @@ float pit_teorem3d (float *x, float *y, float *z) {
 
  }
 
+float g_module(float p_distance, float p1_mass, float p2_mass, float g_const){
+
+    float var_return;
+
+    var_return = g_const * (p1_mass * p2_mass) / (p_distance * p_distance);
+
+    return var_return;
+
+}
+
 void gravity_dyanamic (){
+    /*
 
-//fg = g.m1.m2/d.d
+
+
+
+
+
+
+
+    */
+    if(count_gambiarra > p_amount - 1){
+        count_those = 0;
+
+    }
+
+    //gForceVectores[count] = (this.transform.position - particles[count].transform.position);
+    particle[count_gambiarra] = (particle_gambiarra -)
 
 
 
 }
 
-void window_start(){
-
-    //glutInit(&argc, argv);
-    glutInit(1,NULL);
-    glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
-    glutInitWindowPosition(100,100);
-    glutInitWindowSize(640,480);
-    glutCreateWindow("OpenGL");
-
-}
 void p_render(){
 
 
