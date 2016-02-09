@@ -58,8 +58,6 @@ int main(int argc, char **argv){
     glutCreateWindow("OpenGL");
 
 
-
-
     particle = (struct P_info*)malloc(p_amount * sizeof (struct P_info));
     if (!particle){
         printf ("** Erro: Memoria Insuficiente **");
