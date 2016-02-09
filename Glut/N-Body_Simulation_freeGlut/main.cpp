@@ -7,8 +7,17 @@
 
 int p_amount = 5;
 int p_spacement;
-int count_this = 0;
-int count_those = 0;
+
+int this_p = 0;
+int p_count = 0;
+
+union g_vector{
+
+    float *gf_x;
+    float *gf_y;
+    float *gf_z;
+
+};
 
 struct P_info {
 
@@ -21,7 +30,7 @@ struct P_info {
 
 };
 struct P_info *particle;
-
+union g_vector *gf_vector;
 void particle_instantiate(int p_amount);
 
 float pit_teorem3d (float *x, float *y, float *z);
@@ -59,6 +68,8 @@ int main(int argc, char **argv){
 
 
     particle = (struct P_info*)malloc(p_amount * sizeof (struct P_info));
+    gf_vector = (union g_vector*)malloc(p_amount * sizeof(union g_vector));
+
     if (!particle){
         printf ("** Erro: Memoria Insuficiente **");
           exit;
@@ -71,6 +82,7 @@ int main(int argc, char **argv){
 
     return 0;
     free(particle);
+    free(gf_vector);
 }
 
 void particle_instantiate(int p_amount){
@@ -80,11 +92,9 @@ void particle_instantiate(int p_amount){
     for(i = 0; i < p_amount; i++){
 
 
-//    particle[i].pos_x = rand() % p_spacement;
-  //  particle[i].pos_y = rand() % p_spacement;
-    //particle[i].pos_z = rand() % p_spacement;
-
-
+    particle[i].pos_x = (float*)(rand() % p_spacement);
+    particle[i].pos_y = (float*)(rand() % p_spacement);
+    particle[i].pos_z = (float*)(rand() % p_spacement);
     }
 
 
@@ -115,21 +125,26 @@ void gravity_dyanamic (){
     /*
 
 
-
-
-
-
-
-
     */
-    if(count_gambiarra > p_amount - 1){
-        count_those = 0;
+
+    if(p_count > p_amount - 1)
+        p_count = 0;
+
+    for (this_p = 0; this_p <= p_amount; this_p++){
+
+    gf_vector[p_count].gf_x = (float *)(particle[this_p].pos_x - particle[p_count].pos_x);
+    gf_vector[p_count].gf_y = (float *)(particle[this_p].pos_y - particle[p_count].pos_y);
+    gf_vector[p_count].gf_z = (float *)(particle[this_p].pos_z - particle[p_count].pos_z);
 
     }
 
-    //gForceVectores[count] = (this.transform.position - particles[count].transform.position);
-    particle[count_gambiarra] = (particle_gambiarra -)
 
+
+    if(this_p != p_count && pit_teorem3d(gf_vector->gf_x, gf_vector->gf_y, gf_vector->gf_z)!= 0){
+
+    particle
+
+    }
 
 
 }
