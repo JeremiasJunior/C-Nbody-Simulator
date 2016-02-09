@@ -11,6 +11,8 @@ int p_spacement;
 int this_p = 0;
 int p_count = 0;
 
+float g_const = 1;
+
 union g_vector{
 
     float *gf_x;
@@ -33,13 +35,13 @@ struct P_info *particle;
 union g_vector *gf_vector;
 void particle_instantiate(int p_amount);
 
-float pit_teorem3d (float *x, float *y, float *z);
+float *pit_teorem3d (float *x, float *y, float *z);
 
 void p_render();
 
 void gravity_dyanamic ();
 
-float g_module(float p_distance, float p1_mass, float p2_mass, float g_const);
+float *g_module(float p_distance, float p1_mass, float p2_mass, float g_const);
 
 void window_start();
 
@@ -100,22 +102,25 @@ void particle_instantiate(int p_amount){
 
 }
 
-float pit_teorem3d (float *x, float *y, float *z) {
+float *pit_teorem3d (float *x, float *y, float *z) {
 
     float xup2 = *x * *x;
     float yup2 = *y * *y;
     float zup2 = *z * *z;
+    float *var_return;
+    *var_return = sqrtf (xup2 + zup2 + yup2);
 
-    return sqrtf (xup2 + zup2 + yup2);
+
+    return var_return;
 
 
  }
 
-float g_module(float p_distance, float p1_mass, float p2_mass, float g_const){
+float *g_module(float p_distance, float p1_mass, float p2_mass, float g_const){
 
-    float var_return;
+    float *var_return;
 
-    var_return = g_const * (p1_mass * p2_mass) / (p_distance * p_distance);
+    *var_return = g_const * (p1_mass * p2_mass) / (p_distance * p_distance);
 
     return var_return;
 
@@ -142,7 +147,10 @@ void gravity_dyanamic (){
 
     if(this_p != p_count && pit_teorem3d(gf_vector->gf_x, gf_vector->gf_y, gf_vector->gf_z)!= 0){
 
-    particle
+    *particle[this_p].pos_x = -*gf_vector[p_count].gf_x * *g_module(*pit_teorem3d(gf_vector->gf_x, gf_vector->gf_y, gf_vector->gf_z), particle[this_p].P_mass, particle[p_count].P_mass, g_const);
+    *particle[this_p].pos_y = -*gf_vector[p_count].gf_y * *g_module(*pit_teorem3d(gf_vector->gf_x, gf_vector->gf_y, gf_vector->gf_z), particle[this_p].P_mass, particle[p_count].P_mass, g_const);
+    *particle[this_p].pos_z = -*gf_vector[p_count].gf_z * *g_module(*pit_teorem3d(gf_vector->gf_x, gf_vector->gf_y, gf_vector->gf_z), particle[this_p].P_mass, particle[p_count].P_mass, g_const);
+
 
     }
 
