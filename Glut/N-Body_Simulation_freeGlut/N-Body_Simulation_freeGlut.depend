@@ -247,8 +247,9 @@
 1341013974 c:\users\zigoo_000\desktop\codeblocks\mingw\include\math.h
 	<_mingw.h>
 
-1454962582 source:c:\users\zigoo\desktop\nbodysvn\trunk\glut\n-body_simulation_freeglut\main.cpp
+1455077138 source:c:\users\zigoo\desktop\nbodysvn\trunk\glut\n-body_simulation_freeglut\main.cpp
 	<GL/glut.h>
+	<GL/gl.h>
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
